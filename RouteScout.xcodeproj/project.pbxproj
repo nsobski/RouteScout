@@ -14,6 +14,9 @@
 		20811CC32DDA6A48002A510E /* RouteScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20811CC22DDA6A48002A510E /* RouteScoutTests.swift */; };
 		20811CCD2DDA6A48002A510E /* RouteScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20811CCC2DDA6A48002A510E /* RouteScoutUITests.swift */; };
 		20811CCF2DDA6A48002A510E /* RouteScoutUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20811CCE2DDA6A48002A510E /* RouteScoutUITestsLaunchTests.swift */; };
+		20811CDC2DDA6F40002A510E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20811CDB2DDA6F40002A510E /* LocationManager.swift */; };
+		20811CDE2DDA775C002A510E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20811CDD2DDA775C002A510E /* MapView.swift */; };
+		20811CE02DDA7956002A510E /* PreferenceForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20811CDF2DDA7956002A510E /* PreferenceForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		20811CC82DDA6A48002A510E /* RouteScoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RouteScoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20811CCC2DDA6A48002A510E /* RouteScoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteScoutUITests.swift; sourceTree = "<group>"; };
 		20811CCE2DDA6A48002A510E /* RouteScoutUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteScoutUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		20811CDB2DDA6F40002A510E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		20811CDD2DDA775C002A510E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		20811CDF2DDA7956002A510E /* PreferenceForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,9 @@
 		20811CB02DDA6A46002A510E /* RouteScout */ = {
 			isa = PBXGroup;
 			children = (
+				20811CDD2DDA775C002A510E /* MapView.swift */,
+				20811CDF2DDA7956002A510E /* PreferenceForm.swift */,
+				20811CDB2DDA6F40002A510E /* LocationManager.swift */,
 				20811CB12DDA6A46002A510E /* RouteScoutApp.swift */,
 				20811CB32DDA6A46002A510E /* ContentView.swift */,
 				20811CB52DDA6A48002A510E /* Assets.xcassets */,
@@ -258,7 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				20811CB42DDA6A46002A510E /* ContentView.swift in Sources */,
+				20811CE02DDA7956002A510E /* PreferenceForm.swift in Sources */,
+				20811CDE2DDA775C002A510E /* MapView.swift in Sources */,
 				20811CB22DDA6A46002A510E /* RouteScoutApp.swift in Sources */,
+				20811CDC2DDA6F40002A510E /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +437,7 @@
 				DEVELOPMENT_TEAM = FWD5667PYF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to generate safe and personalized running routes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,6 +467,7 @@
 				DEVELOPMENT_TEAM = FWD5667PYF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to generate safe and personalized running routes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

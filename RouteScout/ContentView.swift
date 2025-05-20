@@ -6,16 +6,52 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ContentView: View {
+    @StateObject private var locationManager = LocationManager()
+    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 42.29307, longitude: -71.30837), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+    @State private var mileage: Double = 3.0
+    @State private var preferTrails: Bool = false
+    @State private var showAmenities: Bool = false
+    @State private var routeCoordinates: [CLLocationCoordinate2D] = []
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            if let location = locationManager.location {
+                MapView(region: $region, route: routeCoordinates)
+                    .onAppear {
+                        region.center = location
+                    }
+                    .frame(height: 300)
+            } else {
+                Text("Fetching location...")
+                    .padding()
+            }
+            PreferenceForm(mileage: $mileage,
+                           preferTrails: $preferTrails,
+                           showAmenities: $showAmenities)
+            Button("Generate Route") {
+                if let userLocation = locationManager.location {
+                    generateMockRoute(from: userLocation, mileage: mileage)
+                }
+            }
         }
         .padding()
+    }
+    
+    func generateMockRoute(from center: CLLocationCoordinate2D, mileage: Double) {
+        let distanceInDegrees = (mileage / 69.0) / 4 // roughly convert miles to lat/long degrees
+        
+        let route = [
+            CLLocationCoordinate2D(latitude: center.latitude + distanceInDegrees, longitude: center.longitude),
+            CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude + distanceInDegrees),
+            CLLocationCoordinate2D(latitude: center.latitude - distanceInDegrees, longitude: center.longitude),
+            CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude - distanceInDegrees),
+            CLLocationCoordinate2D(latitude: center.latitude + distanceInDegrees, longitude: center.longitude) // closing the loop
+        ]
+        
+        routeCoordinates = route
     }
 }
 
