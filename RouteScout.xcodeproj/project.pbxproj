@@ -17,6 +17,7 @@
 		20811CDC2DDA6F40002A510E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20811CDB2DDA6F40002A510E /* LocationManager.swift */; };
 		20811CDE2DDA775C002A510E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20811CDD2DDA775C002A510E /* MapView.swift */; };
 		20811CE02DDA7956002A510E /* PreferenceForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20811CDF2DDA7956002A510E /* PreferenceForm.swift */; };
+		20811CE22DDD80FA002A510E /* OSMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20811CE12DDD80FA002A510E /* OSMService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		20811CDB2DDA6F40002A510E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		20811CDD2DDA775C002A510E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		20811CDF2DDA7956002A510E /* PreferenceForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceForm.swift; sourceTree = "<group>"; };
+		20811CE12DDD80FA002A510E /* OSMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSMService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				20811CDB2DDA6F40002A510E /* LocationManager.swift */,
 				20811CB12DDA6A46002A510E /* RouteScoutApp.swift */,
 				20811CB32DDA6A46002A510E /* ContentView.swift */,
+				20811CE12DDD80FA002A510E /* OSMService.swift */,
 				20811CB52DDA6A48002A510E /* Assets.xcassets */,
 				20811CB72DDA6A48002A510E /* Preview Content */,
 			);
@@ -271,6 +274,7 @@
 				20811CDE2DDA775C002A510E /* MapView.swift in Sources */,
 				20811CB22DDA6A46002A510E /* RouteScoutApp.swift in Sources */,
 				20811CDC2DDA6F40002A510E /* LocationManager.swift in Sources */,
+				20811CE22DDD80FA002A510E /* OSMService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

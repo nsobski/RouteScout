@@ -32,8 +32,29 @@ struct ContentView: View {
                            preferTrails: $preferTrails,
                            showAmenities: $showAmenities)
             Button("Generate Route") {
+//                if let userLocation = locationManager.location {
+//                    generateMockRoute(from: userLocation, mileage: mileage)
+//                }
                 if let userLocation = locationManager.location {
-                    generateMockRoute(from: userLocation, mileage: mileage)
+                    let lat = userLocation.latitude
+                    let lon = userLocation.longitude
+                    
+                    fetchWalkablePaths(lat: lat, lon: lon) { result in
+                        switch result {
+                        case .success(let ways):
+                            print("Fetched \(ways.count) walkable paths")
+                            if let firstWay = ways.first {
+                                let coords = firstWay.geometry.map {
+                                    CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lon)
+                                }
+                                DispatchQueue.main.async {
+                                    routeCoordinates = coords
+                                }
+                            }
+                        case .failure(let error):
+                            print("Error fetching OSM data: \(error.localizedDescription)")
+                        }
+                    }
                 }
             }
         }
