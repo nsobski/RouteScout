@@ -17,6 +17,12 @@ struct MapView: UIViewRepresentable {
         map.delegate = context.coordinator
         map.setRegion(region, animated: false)
         map.showsUserLocation = true
+        
+        map.isZoomEnabled = true
+        map.isScrollEnabled = true
+        map.isPitchEnabled = true
+        map.isRotateEnabled = true
+        
         return map
     }
     

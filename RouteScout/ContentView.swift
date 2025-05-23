@@ -32,27 +32,25 @@ struct ContentView: View {
                            preferTrails: $preferTrails,
                            showAmenities: $showAmenities)
             Button("Generate Route") {
-//                if let userLocation = locationManager.location {
-//                    generateMockRoute(from: userLocation, mileage: mileage)
-//                }
                 if let userLocation = locationManager.location {
-                    let lat = userLocation.latitude
-                    let lon = userLocation.longitude
-                    
-                    fetchWalkablePaths(lat: lat, lon: lon) { result in
+                    fetchWalkablePaths(lat: userLocation.latitude, lon: userLocation.longitude) { result in
                         switch result {
                         case .success(let ways):
-                            print("Fetched \(ways.count) walkable paths")
-                            if let firstWay = ways.first {
-                                let coords = firstWay.geometry.map {
-                                    CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lon)
-                                }
+                            let graph = buildGraph(from: ways)
+                            
+                            if let start = findNearestNode(to: userLocation, in: graph) {
+                                let meters = mileage * 1609.34
+                                let route = walkRandomly(from: start, in: graph, maxDistance: meters)
+                                
                                 DispatchQueue.main.async {
-                                    routeCoordinates = coords
+                                    routeCoordinates = route
                                 }
+                            } else {
+                                print("Could not find a start node near user")
                             }
+                        
                         case .failure(let error):
-                            print("Error fetching OSM data: \(error.localizedDescription)")
+                            print("Error fetching OSM data: \(error)")
                         }
                     }
                 }

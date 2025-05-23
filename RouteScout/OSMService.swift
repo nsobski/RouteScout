@@ -34,7 +34,7 @@ func fetchWalkablePaths(
     let query = """
     [out:json];
     (
-        way["highway"~"footway|path|residential"]["foot"!~"no"](around:1000,\(lat),\(lon));
+        way["highway"~"footway|path|residential"]["foot"!~"no"](around:1500,\(lat),\(lon));
     );
     out geom;
     """
